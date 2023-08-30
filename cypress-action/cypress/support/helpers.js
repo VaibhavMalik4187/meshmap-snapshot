@@ -27,6 +27,7 @@ export const beforeEachCallback = () => {
 export const beforeEachCallbackForCustomUrl = (customPath) => {
   doInitialSetup();
   cy.intercept(extension.path).as(extension.alias);
+  console.log(customPath);
   cy.visit(customPath);
   cy.wait(waitFor(extension.alias), { timeout: 60_000 });
 }
